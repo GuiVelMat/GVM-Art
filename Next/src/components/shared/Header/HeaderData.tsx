@@ -111,7 +111,7 @@ export const HeaderData = ({ activeRoute, session, notifications, isDropdownOpen
                         <Link
                             href="/Upload"
                             prefetch={false}
-                            className={`text-2xl px-4 py-1 rounded-lg hover:text-black hover:bg-gray-300 transition-colors duration-200 ${activeRoute === "/Cart" ? "text-black bg-white" : ""}`}
+                            className={`text-2xl px-4 py-1 rounded-lg hover:text-black hover:bg-gray-300 transition-colors duration-200 ${activeRoute === "/Upload" ? "text-black bg-white" : ""}`}
                         >
                             <PlusSquare />
                         </Link>
