@@ -10,8 +10,11 @@ import { Textarea } from "@/components/ui/textarea"
 import React from "react"
 import { commisionSchema } from "@/validation/schema"
 import { fetchWrapper } from "@/utils/fetch"
+import { useToast } from "@/hooks/use-toast"
 
 export const CommissionForm = () => {
+    const { toast } = useToast();
+
     const form = useForm<z.infer<typeof commisionSchema>>({
         resolver: zodResolver(commisionSchema),
         defaultValues: {
@@ -22,7 +25,19 @@ export const CommissionForm = () => {
     })
 
     async function onSubmit(formData: z.infer<typeof commisionSchema>) {
-        await fetchWrapper('/api/comissions', 'POST', formData)
+        await fetchWrapper('/api/comissions', 'POST', formData).then((data) => {
+            if (!data) {
+                toast({
+                    title: 'Error sending email',
+                });
+                return
+            } else {
+                toast({
+                    title: 'Email sent',
+                    description: 'Your commission request has been received',
+                });
+            }
+        })
 
         form.reset()
     }
