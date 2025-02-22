@@ -18,4 +18,10 @@ export const userProfileSchema = z.object({
   }),
 })
 
+export const commisionSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  description: z.string().min(4, "Description must be at least 10 characters."),
+})
+
 export type UserProfileFormData = z.infer<typeof userProfileSchema>

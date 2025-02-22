@@ -50,14 +50,15 @@ export const HeaderData = ({ activeRoute, session, notifications, isDropdownOpen
                         Shop
                     </Link>
 
-                    {/* <Link
+                    <Link
                         href="/Commissions"
                         prefetch={false}
                         className={`text-2xl px-4 py-1 rounded-lg hover:text-black hover:bg-gray-300 transition-colors duration-200 ${activeRoute === "/Commissions" ? "text-black bg-white" : ""}`}
                     >
-                        Commissions
+                        Comissions
                     </Link>
-                    <Link
+
+                    {/* <Link
                         href="/Portfolio"
                         prefetch={false}
                         className={`text-2xl px-4 py-1 rounded-lg hover:text-black hover:bg-gray-300 transition-colors duration-200 ${activeRoute === "/Portfolio" ? "text-black bg-white" : ""}`}
