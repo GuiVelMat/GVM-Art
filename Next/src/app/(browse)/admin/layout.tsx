@@ -9,9 +9,9 @@ export default function AdminLayout({
 }) {
     return (
         <SidebarProvider>
-            <div className="flex h-screen">
+            <div className="flex flex-grow h-screen bg-zinc-300 justify-center pt-10">
                 <AdminSidebar />
-                <main className="flex-1 overflow-y-auto p-6 w-full bg-zinc-200">{children}</main>
+                {children}
             </div>
         </SidebarProvider>
     )
