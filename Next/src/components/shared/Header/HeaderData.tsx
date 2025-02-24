@@ -87,6 +87,16 @@ export const HeaderData = ({ activeRoute, session, notifications, isDropdownOpen
                         </button>
                     )}
 
+                    {session?.user.role === 'ADMIN' && (
+                        <Link
+                            href="/admin"
+                            prefetch={false}
+                            className={`text-2xl px-4 py-1 rounded-lg hover:text-black hover:bg-gray-300 transition-colors duration-200`}
+                        >
+                            Dashboard
+                        </Link>
+                    )}
+
                     {/* Notifications Dropdown */}
                     {isDropdownOpen && notifications.length > 0 && (
                         <div className="absolute top-16 right-0 w-64 bg-white text-black rounded-lg shadow-lg z-10">
@@ -108,16 +118,6 @@ export const HeaderData = ({ activeRoute, session, notifications, isDropdownOpen
                         </div>
                     )}
 
-                    {session && (
-                        <Link
-                            href="/Upload"
-                            prefetch={false}
-                            className={`text-2xl px-4 py-1 rounded-lg hover:text-black hover:bg-gray-300 transition-colors duration-200 ${activeRoute === "/Upload" ? "text-black bg-white" : ""}`}
-                        >
-                            <PlusSquare />
-                        </Link>
-                    )}
-
                     {!session ? (
                         <Link
                             href="/Login"
@@ -137,8 +137,6 @@ export const HeaderData = ({ activeRoute, session, notifications, isDropdownOpen
                             {session.user.username}
                         </Link>
                     }
-
-
 
                     {session && (
                         <button onClick={useLogout}>
