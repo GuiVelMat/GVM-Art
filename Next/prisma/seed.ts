@@ -47,13 +47,13 @@ async function main() {
   // Crear usuarios
   const users = await prisma.user.createMany({
     data: [
-      { email: 'artist1@example.com', password: 'password123', role: 'USER' },
-      { email: 'artist2@example.com', password: 'password123', role: 'USER' },
-      { email: 'user1@example.com', password: 'password123', role: 'USER' },
-      { email: 'user2@example.com', password: 'password123', role: 'USER' },
-      { email: 'admin@example.com', password: 'adminpassword', role: 'ADMIN' },
-      { email: 'premium1@example.com', password: 'password123', role: 'PREMIUM' },
-      { email: 'premium2@example.com', password: 'password123', role: 'PREMIUM' },
+      { email: 'test@test.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'USER' },
+      { email: 'artist2@example.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'USER' },
+      { email: 'user1@example.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'USER' },
+      { email: 'user2@example.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'USER' },
+      { email: 'admin@example.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'ADMIN' },
+      { email: 'premium1@example.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'PREMIUM' },
+      { email: 'premium2@example.com', password: '$argon2id$v=19$m=65536,t=3,p=4$OBirkoPe07aWfMJ1i8bFPw$7cRO/svM+LNw4ys4IiOze1fz1xBs51a9+wMJ84kCCgg', role: 'PREMIUM' },
     ],
   });
 
