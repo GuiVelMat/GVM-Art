@@ -1,11 +1,10 @@
+import UploadForm from "@/components/forms/UploadForm";
 import React from "react";
 
 const AdminProductsCreate = () => {
     return (
-        <div>
-            <h1>AdminProductsCreate</h1>
-        </div>
-    );
+        <UploadForm />
+    )
 }
 
 export default AdminProductsCreate;
