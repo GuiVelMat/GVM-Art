@@ -19,6 +19,7 @@ export async function getProduct(params: IProductParams) {
           profile: true,
         },
       },
+      categories: true,
       favoritedBy: {
         where: {
           userId: userId
