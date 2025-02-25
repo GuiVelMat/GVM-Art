@@ -1,7 +1,7 @@
 "use client"
 import FileUpload from "@/components/Upload/FileUpload"
 import type React from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAppSelector } from "../../store/store"
 import { selectCategories } from "../../store/slices/categoriesSlice"
 import { selectSeries } from "../../store/slices/seriesSlice"
@@ -12,6 +12,7 @@ import { useFileUpload } from "@/hooks/useFileUpload"
 import { fetchWrapper } from "@/utils/fetch"
 import { toast } from "@/hooks/use-toast"
 import { useSession } from "next-auth/react"
+import { redirect } from "next/navigation"
 
 interface ProductForm {
     name: string
@@ -24,7 +25,12 @@ interface ProductForm {
     email: string
 }
 
-export default function UploadForm() {
+interface UploadFormProps {
+    productData?: ProductForm
+    isEditing?: boolean
+}
+
+export default function UploadForm({ productData, isEditing = false }: UploadFormProps) {
     const session = useSession()
     const [product, setProduct] = useState<ProductForm>({
         name: "",
@@ -42,6 +48,14 @@ export default function UploadForm() {
     const collections = useAppSelector(selectCollections)
     const types = useAppSelector(selectTypes)
     const { uploadFiles } = useFileUpload()
+
+    // Cargar datos del producto si estamos en modo edición
+    useEffect(() => {
+        if (isEditing && productData) {
+            setProduct(productData)
+        }
+    }, [isEditing, productData])
+
     const onFieldChange = (val: Partial<ProductForm>) => {
         setProduct({ ...product, ...val })
     }
@@ -74,33 +88,41 @@ export default function UploadForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setLoading(true)
-        if (product.file instanceof File) {
-            const success = await uploadFiles([product.file])
 
-            console.log(session)
-            if (!success) {
-                console.error("Error: No se ha podido subir el archivo.")
-                setLoading(false)
-                return
-            }
-            console.log("product")
-            console.log(product)
-            try {
-                product.email = session.data?.user.email || ""
-                await fetchWrapper("/api/products", "POST", product).then(() => {
-                    toast({ title: "Producto creado exitosamente" })
+        try {
+            product.email = session.data?.user.email || ""
+
+            // Si estamos editando y no hay un nuevo archivo, enviamos sin subir archivo
+            if (!product.file && isEditing) {
+                await fetchWrapper(`/api/products`, "PUT", product).then(() => {
+                    toast({ title: "Producto actualizado exitosamente" })
                 })
-            } catch {
-                toast({ title: "Error al crear el producto" })
+            } else if (product.file instanceof File) {
+                const success = await uploadFiles([product.file])
+                if (!success) {
+                    console.error("Error: No se ha podido subir el archivo.")
+                    setLoading(false)
+                    return
+                }
+
+                // Determinar el método y URL basado en si estamos editando o creando
+                const method = isEditing ? "PUT" : "POST"
+
+                await fetchWrapper('/api/products', method, product).then(() => {
+                    toast({
+                        title: isEditing ? "Producto actualizado exitosamente" : "Producto creado exitosamente",
+                    })
+                })
             }
-        } else {
-            console.error("Error: No se ha seleccionado un archivo válido.")
-            setLoading(false)
-            return
+        } catch (error) {
+            toast({
+                title: isEditing ? "Error al actualizar el producto" : "Error al crear el producto",
+            })
         }
 
         setLoading(false)
     }
+
     const handleSizeChange = (size: string) => {
         setProduct((prev) => ({
             ...prev,
@@ -112,7 +134,7 @@ export default function UploadForm() {
         <div className="flex justify-center items-center min-h-screen py-4 px-6">
             <form className="w-full max-w-screen-md space-y-6 shadow-md rounded-lg p-8 bg-zinc-500">
                 <section>
-                    <h1 className="text-3xl font-bold text-center mb-6">File upload</h1>
+                    <h1 className="text-3xl font-bold text-center mb-6">{isEditing ? "Edit Product" : "File upload"}</h1>
                     <FileUpload onFileChange={handleFileChange} />
                 </section>
 
@@ -257,7 +279,7 @@ export default function UploadForm() {
                     onClick={handleSubmit}
                     className="w-full bg-gold hover:bg-dark-gold text-white font-bold py-2 px-4 rounded-md transition-colors"
                 >
-                    Crear Producto
+                    {isEditing ? "Actualizar Producto" : "Crear Producto"}
                 </Button>
             </form>
         </div>
