@@ -9,7 +9,7 @@ export default function AdminLayout({
 }) {
     return (
         <SidebarProvider>
-            <div className="flex flex-grow h-screen bg-zinc-300 justify-center pt-10">
+            <div className="flex flex-grow bg-zinc-300 justify-center">
                 <AdminSidebar />
                 {children}
             </div>
