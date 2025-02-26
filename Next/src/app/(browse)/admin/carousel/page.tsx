@@ -1,9 +1,13 @@
+import getCarousel from "@/actions/getCarousel";
+import { CarouselAdmin } from "@/components/admin/carousel/orderCarousel";
 import React from "react";
 
-const AdminCarousel = () => {
+const AdminCarousel = async () => {
+    const slides = await getCarousel();
+
     return (
-        <div>
-            <h1>Carousel admin</h1>
+        <div className="container mx-auto py-8">
+            <CarouselAdmin initialSlides={slides.carousels} />
         </div>
     );
 }
