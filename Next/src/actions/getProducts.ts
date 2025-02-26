@@ -16,6 +16,7 @@ interface GetProductsParams {
   page?: number;
   limit?: number;
   offset?: number;
+  orderBy?: string;
 }
 export default async function getProducts(params: GetProductsParams = {}): Promise<ProductResponse> {
   const page = params.page || 1;
@@ -92,6 +93,9 @@ export default async function getProducts(params: GetProductsParams = {}): Promi
           userId: userId
         }
       }
+    },
+    orderBy: {
+      id: 'desc'
     }
   });
 
