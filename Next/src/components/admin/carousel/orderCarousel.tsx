@@ -3,8 +3,6 @@
 import React, { useEffect } from "react"
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, type DragEndEvent, } from "@dnd-kit/core"
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from "@dnd-kit/sortable"
-import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
 import { SortableCard } from "./sortableCard"
 import { setSlides, reorderSlides, removeSlide } from "@/store/slices/carouselSlice"
 import { useAppDispatch, useAppSelector } from "@/store/store"
@@ -70,15 +68,7 @@ export function CarouselAdmin({ initialSlides }: CarouselAdminProps) {
 
     return (
         // <h1>hola</h1>
-        <div className="p-4 space-y-4">
-            <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold">Carousel Slides</h2>
-                <Button>
-                    <Plus className="w-4 h-4 mr-2" />
-                    Add New Slide
-                </Button>
-            </div>
-
+        <div>
             <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
                 <SortableContext items={slides} strategy={verticalListSortingStrategy}>
                     <div className="grid gap-4">
