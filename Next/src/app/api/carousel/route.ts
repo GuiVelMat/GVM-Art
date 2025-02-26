@@ -34,3 +34,20 @@ export async function PUT(req: NextRequest) {
         return ApiResponse.badRequest('Failed to update slides order')
     }
 }
+
+export const DELETE = async (req: NextRequest) => {
+    try {
+        const body = await req.json()
+
+        const carousel = await prisma.carousel.delete({
+            where: { id: body.id },
+        })
+
+        revalidatePath("/")
+
+        return ApiResponse.ok(carousel)
+    } catch (error) {
+        console.error("Error deleting slide:", error)
+        return ApiResponse.badRequest("Failed to delete slide")
+    }
+}
