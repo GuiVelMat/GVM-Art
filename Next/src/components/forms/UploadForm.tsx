@@ -95,12 +95,12 @@ export default function UploadForm({ productData, isEditing = false }: UploadFor
             // Si estamos editando y no hay un nuevo archivo, enviamos sin subir archivo
             if (!product.file && isEditing) {
                 await fetchWrapper(`/api/products`, "PUT", product).then(() => {
-                    toast({ title: "Producto actualizado exitosamente" })
+                    toast({ title: "Product updated succesfully" })
                 })
             } else if (product.file instanceof File) {
                 const success = await uploadFiles([product.file])
                 if (!success) {
-                    console.error("Error: No se ha podido subir el archivo.")
+                    console.error("Error: The file could not be uploaded.")
                     setLoading(false)
                     return
                 }
@@ -110,13 +110,13 @@ export default function UploadForm({ productData, isEditing = false }: UploadFor
 
                 await fetchWrapper('/api/products', method, product).then(() => {
                     toast({
-                        title: isEditing ? "Producto actualizado exitosamente" : "Producto creado exitosamente",
+                        title: isEditing ? "Product updated succesfully" : "Product created succesfully",
                     })
                 })
             }
         } catch (error) {
             toast({
-                title: isEditing ? "Error al actualizar el producto" : "Error al crear el producto",
+                title: isEditing ? "Error when uploading product" : "Error when creating product",
             })
         }
 
@@ -134,7 +134,8 @@ export default function UploadForm({ productData, isEditing = false }: UploadFor
         <div className="flex justify-center items-center min-h-screen py-4 px-6">
             <form className="w-full max-w-screen-md space-y-6 shadow-md rounded-lg p-8 bg-zinc-500">
                 <section>
-                    <h1 className="text-3xl font-bold text-center mb-6">{isEditing ? "Edit Product" : "File upload"}</h1>
+                    <h1 className="text-3xl font-bold text-center mb-6">{isEditing ? `Edit "${product.name}"` : "Create a new product"}</h1>
+                    <h3 className="text-center text-yellow-300 font-bold">(All fields must be filled out)</h3>
                     <FileUpload onFileChange={handleFileChange} />
                 </section>
 
@@ -279,7 +280,7 @@ export default function UploadForm({ productData, isEditing = false }: UploadFor
                     onClick={handleSubmit}
                     className="w-full bg-gold hover:bg-dark-gold text-white font-bold py-2 px-4 rounded-md transition-colors"
                 >
-                    {isEditing ? "Actualizar Producto" : "Crear Producto"}
+                    {isEditing ? "Update product" : "Create product"}
                 </Button>
             </form>
         </div>

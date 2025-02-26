@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, PanelBottom, Bell, ShoppingCart, Users, MessageSquareWarning, LogOut, List, PlusCircle, ArrowLeftRightIcon, FolderClosed, LucideMailWarning } from "lucide-react"
+import { PanelBottom, Bell, ShoppingCart, Users, MessageSquareWarning, LogOut, List, PlusCircle, ArrowLeftRightIcon, FolderClosed, LucideMailWarning, ChartBarIcon } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "@/components/ui/sidebar"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -9,7 +9,7 @@ import Image from "next/image"
 import { useLogout } from "@/hooks/useAuth"
 
 const menuItems = [
-    { icon: Home, label: "Home", href: "/admin" },
+    { icon: ChartBarIcon, label: "Analytics", href: "/admin" },
     { icon: PanelBottom, label: "Carousel", href: "/admin/carousel" },
     { icon: Bell, label: "Notifications", href: "/admin/notifications" },
     {

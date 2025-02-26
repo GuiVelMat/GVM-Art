@@ -5,24 +5,24 @@ import Image from "next/image"
 import { X } from "lucide-react"
 import { useFileManagement } from "@/hooks/useFileManagement"
 import { useToast } from "@/hooks/use-toast"
-import { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 
 interface FileUploadProps {
-    onFileChange: (file: File) => void;
+  onFileChange: (file: File) => void;
 }
 
 export default function FileUpload({ onFileChange }: FileUploadProps) {
   const { files, setFiles, getRootProps, getInputProps, isDragActive, removeFile } = useFileManagement()
   const { toast } = useToast()
   const prevFileNameRef = useRef<string | null>(null);
-  
+
   useEffect(() => {
     if (files.length > 0) {
-    const file = files[0];
-    const fileName = file.name;
-    if (fileName !== prevFileNameRef.current) {
-      onFileChange(file);
-      prevFileNameRef.current = fileName;
+      const file = files[0];
+      const fileName = file.name;
+      if (fileName !== prevFileNameRef.current) {
+        onFileChange(file);
+        prevFileNameRef.current = fileName;
       }
     }
   }, [files, onFileChange]);
@@ -36,14 +36,14 @@ export default function FileUpload({ onFileChange }: FileUploadProps) {
       >
         <input {...getInputProps()} />
         {isDragActive ? (
-          <p>Suelta las imágenes aquí...</p>
+          <p>Drop image here...</p>
         ) : (
-          <p>Arrastra y suelta imágenes aquí, o haz clic para seleccionar imágenes</p>
+          <p>Drag and drop images here, or click to select images</p>
         )}
       </div>
       {files.length > 0 && (
         <div className="mt-4">
-          <h3 className="font-semibold mb-2">Imágenes seleccionadas:</h3>
+          <h3 className="font-semibold mb-2">Images selected:</h3>
           <div className="grid grid-cols-3 gap-4">
             {files.map((file) => (
               <div key={file.name} className="relative group">
