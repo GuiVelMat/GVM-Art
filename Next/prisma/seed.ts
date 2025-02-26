@@ -176,535 +176,535 @@ async function main() {
   console.log('Series creadas:', series);
 
   // Crear productos con relaciones
-    const products = [];
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Aomori Fauna',
-        slug: 'Aomori-Fauna',
-        stock: 10,
-        userId: 1,
-        collectionId: 4,
-        seriesId: 9,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Signal Sky',
-        slug: 'Signal-Sky',
-        stock: 5,
-        userId: 2,
-        collectionId: 4,
-        seriesId: 1,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Endwalker',
-        slug: 'Endwalker',
-        stock: 15,
-        userId: 1,
-        collectionId: 1,
-        seriesId: 8,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'iRys',
-        slug: 'iRys',
-        stock: 8,
-        userId: 2,
-        collectionId: 1,
-        seriesId: 9,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Sana',
-        slug: 'Sana',
-        stock: 12,
-        userId: 1,
-        collectionId: 3,
-        seriesId: 9,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Puerto al alba',
-        slug: 'Puerto-al-alba',
-        stock: 10,
-        userId: 2,
-        collectionId: 5,
-        seriesId: 10,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Puerto al ocaso',
-        slug: 'Puerto-al-ocaso',
-        stock: 5,
-        userId: 1,
-        collectionId: 5,
-        seriesId: 10,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Cafe Hyouka',
-        slug: 'Cafe-Hyouka',
-        stock: 15,
-        userId: 2,
-        collectionId: 1,
-        seriesId: 11,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Cage interpretation',
-        slug: 'Cage-interpretation',
-        stock: 8,
-        userId: 1,
-        collectionId: 9,
-        seriesId: 10,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Dragon dance - Zuko',
-        slug: 'Dragon-dance-Zuko',
-        stock: 12,
-        userId: 2,
-        collectionId: 6,
-        seriesId: 12,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Dragon dance - Aang',
-        slug: 'Dragon-dance-Aang',
+  const products = [];
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Aomori Fauna',
+      slug: 'Aomori-Fauna',
+      stock: 10,
+      userId: 1,
+      collectionId: 4,
+      seriesId: 9,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Signal Sky',
+      slug: 'Signal-Sky',
+      stock: 5,
+      userId: 2,
+      collectionId: 4,
+      seriesId: 1,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Endwalker',
+      slug: 'Endwalker',
+      stock: 15,
+      userId: 1,
+      collectionId: 1,
+      seriesId: 8,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'iRys',
+      slug: 'iRys',
+      stock: 8,
+      userId: 2,
+      collectionId: 1,
+      seriesId: 9,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Sana',
+      slug: 'Sana',
+      stock: 12,
+      userId: 1,
+      collectionId: 3,
+      seriesId: 9,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Puerto al alba',
+      slug: 'Puerto-al-alba',
+      stock: 10,
+      userId: 2,
+      collectionId: 5,
+      seriesId: 10,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Puerto al ocaso',
+      slug: 'Puerto-al-ocaso',
+      stock: 5,
+      userId: 1,
+      collectionId: 5,
+      seriesId: 10,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Cafe Hyouka',
+      slug: 'Cafe-Hyouka',
+      stock: 15,
+      userId: 2,
+      collectionId: 1,
+      seriesId: 11,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Cage interpretation',
+      slug: 'Cage-interpretation',
+      stock: 8,
+      userId: 1,
+      collectionId: 9,
+      seriesId: 10,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Dragon dance - Zuko',
+      slug: 'Dragon-dance-Zuko',
+      stock: 12,
+      userId: 2,
+      collectionId: 6,
+      seriesId: 12,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Dragon dance - Aang',
+      slug: 'Dragon-dance-Aang',
 
-        stock: 10,
-        userId: 1,
-        collectionId: 6,
-        seriesId: 12,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Pokemon Galicia',
-        slug: 'Pokemon-Galicia',
-        stock: 15,
-        userId: 2,
-        collectionId: 9,
-        seriesId: 1,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Temple Yue',
-        slug: 'Temple-Yue',
-        stock: 8,
-        userId: 1,
-        collectionId: 1,
-        seriesId: 5,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Moonholder Yue',
-        slug: 'Moonholder-Yue',
-        stock: 12,
-        userId: 2,
-        collectionId: 7,
-        seriesId: 5,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Agni kai',
-        slug: 'Agni-kai',
-        stock: 10,
-        userId: 1,
-        collectionId: 6,
-        seriesId: 12,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Hoenn',
-        slug: 'Hoenn',
-        stock: 15,
-        userId: 2,
-        collectionId: 5,
-        seriesId: 1,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Hyouka finale',
-        slug: 'Hyouka-finale',
-        stock: 8,
-        userId: 1,
-        collectionId: 1,
-        seriesId: 11,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Starry night',
-        slug: 'Starry-night',
-        stock: 12,
-        userId: 2,
-        collectionId: 7,
-        seriesId: 10,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Heize',
-        slug: 'Heize',
-        stock: 10,
-        userId: 1,
-        collectionId: 8,
-        seriesId: 10,
-      },
-    }));
-    products.push(await prisma.product.create({
-      data: {
-        name: 'Kokomi',
-        slug: 'Kokomi',
-        stock: 15,
-        userId: 2,
-        collectionId: 2,
-        seriesId: 3,
-      },
-    }));
+      stock: 10,
+      userId: 1,
+      collectionId: 6,
+      seriesId: 12,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Pokemon Galicia',
+      slug: 'Pokemon-Galicia',
+      stock: 15,
+      userId: 2,
+      collectionId: 9,
+      seriesId: 1,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Temple Yue',
+      slug: 'Temple-Yue',
+      stock: 8,
+      userId: 1,
+      collectionId: 1,
+      seriesId: 5,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Moonholder Yue',
+      slug: 'Moonholder-Yue',
+      stock: 12,
+      userId: 2,
+      collectionId: 7,
+      seriesId: 5,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Agni kai',
+      slug: 'Agni-kai',
+      stock: 10,
+      userId: 1,
+      collectionId: 6,
+      seriesId: 12,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Hoenn',
+      slug: 'Hoenn',
+      stock: 15,
+      userId: 2,
+      collectionId: 5,
+      seriesId: 1,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Hyouka finale',
+      slug: 'Hyouka-finale',
+      stock: 8,
+      userId: 1,
+      collectionId: 1,
+      seriesId: 11,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Starry night',
+      slug: 'Starry-night',
+      stock: 12,
+      userId: 2,
+      collectionId: 7,
+      seriesId: 10,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Heize',
+      slug: 'Heize',
+      stock: 10,
+      userId: 1,
+      collectionId: 8,
+      seriesId: 10,
+    },
+  }));
+  products.push(await prisma.product.create({
+    data: {
+      name: 'Kokomi',
+      slug: 'Kokomi',
+      stock: 15,
+      userId: 2,
+      collectionId: 2,
+      seriesId: 3,
+    },
+  }));
 
-    console.log('Productos creados:', products);
+  console.log('Productos creados:', products);
 
-    /**
-     * CREAR LOS DUMMIES DE LAS TABLAS PIVOT
-     */
+  /**
+   * CREAR LOS DUMMIES DE LAS TABLAS PIVOT
+   */
 
-    await prisma.product.update({
-      where: { id: products[0].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[1].id },
-            { id: categories[2].id },
-          ]
-        },
-      }
-    })
+  await prisma.product.update({
+    where: { id: products[0].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[1].id },
+          { id: categories[2].id },
+        ]
+      },
+    }
+  })
 
-    await prisma.product.update({
-      where: { id: products[1].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[5].id },
-          ]
-        },
-      }
-    })
+  await prisma.product.update({
+    where: { id: products[1].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[5].id },
+        ]
+      },
+    }
+  })
 
-    await prisma.product.update({
-      where: { id: products[2].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[0].id },
-            { id: categories[2].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    })
+  await prisma.product.update({
+    where: { id: products[2].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[0].id },
+          { id: categories[2].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  })
 
-    await prisma.product.update({
-      where: { id: products[3].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[1].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    })
+  await prisma.product.update({
+    where: { id: products[3].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[1].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  })
 
-    await prisma.product.update({
-      where: { id: products[4].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[3].id },
-          ]
-        },
-      }
-    })
-    await prisma.product.update({
-      where: { id: products[5].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[6].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[1].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[7].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[0].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[8].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[9].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    await prisma.product.update({
-      where: { id: products[10].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-            { id: categories[5].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[11].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[1].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[12].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[0].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[13].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[3].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[14].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    await prisma.product.update({
-      where: { id: products[15].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-            { id: categories[0].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[16].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[1].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[17].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[0].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[18].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[1].id },
-            { id: categories[2].id },
-            { id: categories[4].id },
-          ]
-        },
-      }
-    });
-    
-    await prisma.product.update({
-      where: { id: products[19].id },
-      data: {
-        categories: {
-          connect: [
-            { id: categories[2].id },
-            { id: categories[3].id },
-          ]
-        },
-      }
-    });
-    console.log('Productos con categorías creados:', products);
+  await prisma.product.update({
+    where: { id: products[4].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[3].id },
+        ]
+      },
+    }
+  })
+  await prisma.product.update({
+    where: { id: products[5].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[6].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[1].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[7].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[0].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[8].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[9].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+  await prisma.product.update({
+    where: { id: products[10].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+          { id: categories[5].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[11].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[1].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[12].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[0].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[13].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[3].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[14].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+  await prisma.product.update({
+    where: { id: products[15].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+          { id: categories[0].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[16].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[1].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[17].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[0].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[18].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[1].id },
+          { id: categories[2].id },
+          { id: categories[4].id },
+        ]
+      },
+    }
+  });
+
+  await prisma.product.update({
+    where: { id: products[19].id },
+    data: {
+      categories: {
+        connect: [
+          { id: categories[2].id },
+          { id: categories[3].id },
+        ]
+      },
+    }
+  });
+  console.log('Productos con categorías creados:', products);
 
   // Crear precios para los productos con múltiples tipos
-const productPrices = await prisma.productPrice.createMany({
-  data: [
-    // Producto 1
-    { productId: products[0].id, typeId: types[0].id, price: 25.99 }, // Print
-    { productId: products[0].id, typeId: types[1].id, price: 15.99 }, // Digital copy
-    
-    // Producto 2
-    { productId: products[1].id, typeId: types[0].id, price: 19.99 }, 
-    { productId: products[1].id, typeId: types[2].id, price: 29.99 },
+  const productPrices = await prisma.productPrice.createMany({
+    data: [
+      // Producto 1
+      { productId: products[0].id, typeId: types[0].id, price: 25.99 }, // Print
+      { productId: products[0].id, typeId: types[1].id, price: 15.99 }, // Digital copy
 
-    // Producto 3
-    { productId: products[2].id, typeId: types[0].id, price: 29.99 }, 
-    { productId: products[2].id, typeId: types[3].id, price: 49.99 },
+      // Producto 2
+      { productId: products[1].id, typeId: types[0].id, price: 19.99 },
+      { productId: products[1].id, typeId: types[2].id, price: 29.99 },
 
-    // Producto 4
-    { productId: products[3].id, typeId: types[1].id, price: 22.50 }, 
-    { productId: products[3].id, typeId: types[2].id, price: 35.00 },
+      // Producto 3
+      { productId: products[2].id, typeId: types[0].id, price: 29.99 },
+      { productId: products[2].id, typeId: types[3].id, price: 49.99 },
 
-    // Producto 5
-    { productId: products[4].id, typeId: types[0].id, price: 27.99 },
-    { productId: products[4].id, typeId: types[1].id, price: 17.99 },
-    { productId: products[4].id, typeId: types[3].id, price: 55.00 },
+      // Producto 4
+      { productId: products[3].id, typeId: types[1].id, price: 22.50 },
+      { productId: products[3].id, typeId: types[2].id, price: 35.00 },
 
-    // Producto 6
-    { productId: products[5].id, typeId: types[0].id, price: 24.50 }, 
-    { productId: products[5].id, typeId: types[2].id, price: 32.99 },
+      // Producto 5
+      { productId: products[4].id, typeId: types[0].id, price: 27.99 },
+      { productId: products[4].id, typeId: types[1].id, price: 17.99 },
+      { productId: products[4].id, typeId: types[3].id, price: 55.00 },
 
-    // Producto 7
-    { productId: products[6].id, typeId: types[1].id, price: 21.99 }, 
-    { productId: products[6].id, typeId: types[3].id, price: 42.50 },
+      // Producto 6
+      { productId: products[5].id, typeId: types[0].id, price: 24.50 },
+      { productId: products[5].id, typeId: types[2].id, price: 32.99 },
 
-    // Producto 8
-    { productId: products[7].id, typeId: types[0].id, price: 30.00 },
-    { productId: products[7].id, typeId: types[1].id, price: 20.00 },
+      // Producto 7
+      { productId: products[6].id, typeId: types[1].id, price: 21.99 },
+      { productId: products[6].id, typeId: types[3].id, price: 42.50 },
 
-    // Producto 9
-    { productId: products[8].id, typeId: types[0].id, price: 26.99 },
-    { productId: products[8].id, typeId: types[2].id, price: 38.99 },
+      // Producto 8
+      { productId: products[7].id, typeId: types[0].id, price: 30.00 },
+      { productId: products[7].id, typeId: types[1].id, price: 20.00 },
 
-    // Producto 10
-    { productId: products[9].id, typeId: types[1].id, price: 23.50 }, 
-    { productId: products[9].id, typeId: types[3].id, price: 50.00 },
+      // Producto 9
+      { productId: products[8].id, typeId: types[0].id, price: 26.99 },
+      { productId: products[8].id, typeId: types[2].id, price: 38.99 },
 
-    // Producto 11
-    { productId: products[10].id, typeId: types[0].id, price: 28.99 }, 
-    { productId: products[10].id, typeId: types[2].id, price: 40.99 },
+      // Producto 10
+      { productId: products[9].id, typeId: types[1].id, price: 23.50 },
+      { productId: products[9].id, typeId: types[3].id, price: 50.00 },
 
-    // Producto 12
-    { productId: products[11].id, typeId: types[1].id, price: 31.99 }, 
-    { productId: products[11].id, typeId: types[3].id, price: 60.00 },
+      // Producto 11
+      { productId: products[10].id, typeId: types[0].id, price: 28.99 },
+      { productId: products[10].id, typeId: types[2].id, price: 40.99 },
 
-    // Producto 13
-    { productId: products[12].id, typeId: types[0].id, price: 20.50 },
-    { productId: products[12].id, typeId: types[1].id, price: 14.50 },
+      // Producto 12
+      { productId: products[11].id, typeId: types[1].id, price: 31.99 },
+      { productId: products[11].id, typeId: types[3].id, price: 60.00 },
 
-    // Producto 14
-    { productId: products[13].id, typeId: types[2].id, price: 32.99 }, 
-    { productId: products[13].id, typeId: types[3].id, price: 58.50 },
+      // Producto 13
+      { productId: products[12].id, typeId: types[0].id, price: 20.50 },
+      { productId: products[12].id, typeId: types[1].id, price: 14.50 },
 
-    // Producto 15
-    { productId: products[14].id, typeId: types[0].id, price: 18.99 }, 
-    { productId: products[14].id, typeId: types[1].id, price: 12.99 },
+      // Producto 14
+      { productId: products[13].id, typeId: types[2].id, price: 32.99 },
+      { productId: products[13].id, typeId: types[3].id, price: 58.50 },
 
-    // Producto 16
-    { productId: products[15].id, typeId: types[2].id, price: 25.50 }, 
-    { productId: products[15].id, typeId: types[3].id, price: 45.00 },
+      // Producto 15
+      { productId: products[14].id, typeId: types[0].id, price: 18.99 },
+      { productId: products[14].id, typeId: types[1].id, price: 12.99 },
 
-    // Producto 17
-    { productId: products[16].id, typeId: types[0].id, price: 29.99 }, 
-    { productId: products[16].id, typeId: types[1].id, price: 19.99 },
+      // Producto 16
+      { productId: products[15].id, typeId: types[2].id, price: 25.50 },
+      { productId: products[15].id, typeId: types[3].id, price: 45.00 },
 
-    // Producto 18
-    { productId: products[17].id, typeId: types[2].id, price: 33.99 }, 
-    { productId: products[17].id, typeId: types[3].id, price: 65.00 },
+      // Producto 17
+      { productId: products[16].id, typeId: types[0].id, price: 29.99 },
+      { productId: products[16].id, typeId: types[1].id, price: 19.99 },
 
-    // Producto 19
-    { productId: products[18].id, typeId: types[0].id, price: 22.99 }, 
-    { productId: products[18].id, typeId: types[1].id, price: 16.99 },
+      // Producto 18
+      { productId: products[17].id, typeId: types[2].id, price: 33.99 },
+      { productId: products[17].id, typeId: types[3].id, price: 65.00 },
 
-    // Producto 20
-    { productId: products[19].id, typeId: types[2].id, price: 30.50 }, 
-    { productId: products[19].id, typeId: types[3].id, price: 55.50 },
-  ],
-});
+      // Producto 19
+      { productId: products[18].id, typeId: types[0].id, price: 22.99 },
+      { productId: products[18].id, typeId: types[1].id, price: 16.99 },
 
-console.log('Precios de productos creados:', productPrices);
+      // Producto 20
+      { productId: products[19].id, typeId: types[2].id, price: 30.50 },
+      { productId: products[19].id, typeId: types[3].id, price: 55.50 },
+    ],
+  });
+
+  console.log('Precios de productos creados:', productPrices);
 
 
 
@@ -758,28 +758,32 @@ console.log('Precios de productos creados:', productPrices);
         slug: 'Aomori-Fauna',
         description: '¡Últimas unidades en prints firmadas, date prisa para conseguir una!',
         image: 'carousel_1.jpg',
-        href: '/Details/Aomori-Fauna'
+        href: '/Details/Aomori-Fauna',
+        slide_number: 1
       },
       {
         title: 'Backgrounds',
         slug: 'backgrounds',
         description: 'Echa un vistazo a la categoría con los mejores paisajes',
         image: 'carousel_2.jpg',
-        href: '/Shop?Category=backgrounds'
+        href: '/Shop?Category=backgrounds',
+        slide_number: 2
       },
       {
         title: 'Final Fantasy XIV',
         slug: 'final-fantasy-xiv',
         description: 'Rememora tus escenas favoritas con la colección del aclamado MMO',
         image: 'carousel_3.jpg',
-        href: '/Shop?Series=final-fantasy-xiv'
+        href: '/Shop?Series=final-fantasy-xiv',
+        slide_number: 3
       },
       {
         title: 'Fanart',
         slug: 'fanart',
         description: '¡Descubre nuestro catálogo de Fanarts!',
         image: 'carousel_4.jpg',
-        href: '/Shop?Category=fanart'
+        href: '/Shop?Category=fanart',
+        slide_number: 4
       },
     ],
   });

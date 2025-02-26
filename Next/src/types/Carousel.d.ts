@@ -1,6 +1,6 @@
 import { status } from '.prisma/client';  // Para el tipo 'status'
 
-export interface CarouselItem extends Omit<Carousel, 'updatedAt'> {
+export interface CarouselItem extends Omit<Carousel, 'updatedAt', 'createdAt'> {
     id: number;
     title: string;
     slug: string;
@@ -8,6 +8,7 @@ export interface CarouselItem extends Omit<Carousel, 'updatedAt'> {
     href: string;
     description: string;
     status: status;
+    slide_number: number;
 }
 
 

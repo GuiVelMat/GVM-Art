@@ -36,15 +36,16 @@ enum postType {
 }
 
 model Carousel {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  image       String
-  slug        String?  @unique
-  href        String
-  status      status   @default(ACTIVE)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  image        String
+  slug         String?  @unique
+  href         String
+  slide_number Int
+  status       status   @default(ACTIVE)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 model ImagesProduct {
@@ -317,8 +318,8 @@ model Incidents {
   orderLine   OrderLine? @relation(fields: [orderLineId], references: [id], onDelete: Cascade)
   description String?
   type        String
-  
-  status      status     @default(ACTIVE)
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+
+  status    status   @default(ACTIVE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
