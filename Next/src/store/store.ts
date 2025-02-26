@@ -13,6 +13,7 @@ import favoriteReducer from './slices/favoriteSlice';
 import currentUserReducer from './slices/currentUserSlice';
 import cartReducer from './slices/cartSlice';
 import typesReducer from './slices/typesSlice';
+import carouselReducer from './slices/carouselSlice';
 
 export const store = configureStore({
     reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
         auth: currentUserReducer,
         cart: cartReducer,
         types: typesReducer,
+        carousel: carouselReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
 });
