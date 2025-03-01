@@ -14,6 +14,7 @@ import currentUserReducer from './slices/currentUserSlice';
 import cartReducer from './slices/cartSlice';
 import typesReducer from './slices/typesSlice';
 import carouselReducer from './slices/carouselSlice';
+import usersReducer from './slices/usersSlice';
 
 export const store = configureStore({
     reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
         cart: cartReducer,
         types: typesReducer,
         carousel: carouselReducer,
+        users: usersReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
 });
