@@ -1,13 +1,12 @@
-import { Profile } from "@prisma/client";
+import { Profile, User } from "@prisma/client";
 
-export interface ProfileItem extends Omit<Profile, 'updatedAt'> {
+export interface ProfileItem extends Omit<Profile, 'updatedAt', 'createdAt'> {
     id: number;
-    createdAt: Date;
     username: string;
     bio: string | null;
     avatar: string | null;
     userId: number;
-    updatedAt: Date;
+    user: User;
 }
 
 export interface ProfileResponse {

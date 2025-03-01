@@ -3,6 +3,14 @@ import { prisma } from '@/lib/prisma'
 import { ApiResponse } from '@/app/api/exceptions'
 import { userRegisterSchema } from '@/validation/schema'
 import argon2 from 'argon2'
+import getUserList from '@/actions/getUserList'
+
+export const GET = async () => {
+  const response = await getUserList();
+  console.log(response);
+
+  return ApiResponse.ok(response);
+}
 
 export const POST = async (req: NextRequest) => {
   const body = await req.json()

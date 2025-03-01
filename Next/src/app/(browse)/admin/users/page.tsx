@@ -1,9 +1,10 @@
+import { ListUsersAdmin } from "@/components/admin/List/ListUsersAdmin";
 import React from "react";
 
-const AdminUsers = () => {
+const AdminUsers = async () => {
     return (
         <div>
-            <h1>AdminUsers</h1>
+            <ListUsersAdmin />
         </div>
     );
 }
