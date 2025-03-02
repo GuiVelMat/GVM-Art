@@ -1,5 +1,5 @@
 import getCarousel from "@/actions/getCarousel";
-import { CarouselForm } from "@/components/admin/carousel/createSlideForm";
+import { CarouselForm } from "@/components/admin/forms/createSlideForm";
 import { CarouselAdmin } from "@/components/admin/carousel/orderCarousel";
 import React from "react";
 
