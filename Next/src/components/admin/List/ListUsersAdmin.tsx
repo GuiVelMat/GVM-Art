@@ -14,8 +14,8 @@ export const ListUsersAdmin = () => {
     }, [dispatch])
 
     return (
-        <section className="container mx-auto">
-            <div className="grid grid-cols-3 gap-4">
+        <section className="">
+            <div className="grid grid-cols-4 gap-4">
                 {users.map((user) => (
                     <CardUsersAdmin key={user.id} user={user} />
                 ))}
