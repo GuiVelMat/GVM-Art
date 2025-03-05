@@ -1,6 +1,5 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Image from "next/image"
 import React from "react"
@@ -23,27 +22,30 @@ export default function ArtCarousel({ sheet }: ArtCarouselProps) {
     const artworks = sheet === 1 ? commisionSheet_1 : commisionSheet_2
 
     return (
-        <Carousel className="w-full max-w-xs mx-auto">
-            <CarouselContent>
-                {artworks.map((artwork) => (
-                    <CarouselItem key={artwork.id}>
-                        <Card>
-                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                <Image
-                                    src={artwork.src || "/placeholder.svg"}
-                                    alt={artwork.alt}
-                                    width={600}
-                                    height={500}
-                                    className="rounded-lg object-cover"
-                                />
-                            </CardContent>
-                        </Card>
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-        </Carousel>
+        <div className="relative w-full">
+            <Carousel className="w-full">
+                <CarouselContent>
+                    {artworks.map((artwork) => (
+                        <CarouselItem key={artwork.id}>
+                            <div className="relative w-full h-full">
+                                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+                                    <Image
+                                        src={artwork.src || "/placeholder.svg"}
+                                        alt={artwork.alt}
+                                        fill={true}
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-contain"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/60 hover:bg-white/80 border-none" />
+                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/60 hover:bg-white/80 border-none" />
+            </Carousel>
+        </div>
     )
 }
 
