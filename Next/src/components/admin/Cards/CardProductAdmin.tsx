@@ -39,7 +39,7 @@ export const CardProductAdmin = (product: ProductItem) => {
                     <Link href={`/Details/${product.slug}`} target="_blank" rel="noopener noreferrer">
                         <Button size="sm" className="bg-zinc-800 hover:bg-zinc-600 flex items-center gap-2">
                             <ExternalLink className="w-4 h-4" />
-                            Go to shop
+                            Check Details
                         </Button>
                     </Link>
                 </div>

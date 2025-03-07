@@ -10,7 +10,8 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Plus } from "lucide-react"
+import { HelpCircle, Plus } from "lucide-react"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 const formSchema = z.object({
     title: z.string().min(2, {
@@ -129,7 +130,26 @@ export function CarouselForm() {
                     name="href"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel className="font-bold">href</FormLabel>
+                            <div className="flex items-center gap-2">
+                                <FormLabel className="font-bold">href</FormLabel>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <HelpCircle className="h-4 w-4 cursor-help" />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p className="max-w-xs">
+                                                This is where you write slide redirection when clicked.
+                                                It works with the last part of the URL, for example:
+                                                <br /> <br />
+                                                <span className="font-bold">/Shop?category=Fanart</span> if you want to redirect to the shop page with the fanart category.
+                                                <br />
+                                                <span className="font-bold">/Details/slug-product</span> if you want to redirect to the details page of a product.
+                                            </p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
                             <FormControl>
                                 <Input placeholder="/Shop?category=something OR /Details/slug-product" {...field} />
                             </FormControl>
