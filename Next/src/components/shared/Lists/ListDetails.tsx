@@ -3,6 +3,7 @@ import { AddtoCartButton } from "@/components/Cart/AddtoCartbutton"
 import PriceSelector from "@/components/Cart/PriceSelector"
 import PriceDisplay from "@/components/Cart/PriceDisplay"
 import { ProductItem } from "@/types/Product"
+import { ReportButton } from "../buttons/reportButton"
 
 interface ListDetailsProps {
     product: ProductItem // Replace 'any' with a proper Product interface
@@ -28,7 +29,11 @@ const ListDetails = ({ product }: ListDetailsProps) => {
             <div
                 className={`w-full ${imageSize === "wide" ? "lg:w-1/3" : imageSize === "tall" ? "md:w-2/3" : "md:w-1/2"} ${imageSize !== "wide" ? "md:pl-8" : "lg:pl-8"}`}
             >
-                <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+                <div className="flex items-center">
+                    <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+                    <ReportButton productId={product.id} orderLineId={null} />
+                </div>
+
                 <div className="space-y-4 mb-8">
                     <p className="text-lg">
                         <span className="font-semibold">Collection:</span> {product.collections.name}
@@ -41,10 +46,6 @@ const ListDetails = ({ product }: ListDetailsProps) => {
                         <PriceSelector prices={product.productPrices} defaultPrice={defaultPrice} />
                         {defaultPrice !== null && <PriceDisplay defaultPrice={defaultPrice} />}
                     </div>
-
-                    {/* <p className="text-lg">
-                        <span className="font-semibold">Artist:</span> {product.artist?.profile?.username}
-                    </p> */}
 
                     {defaultPrice !== null && <AddtoCartButton product={product} defaultPrice={defaultPrice} />}
                 </div>

@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Download } from "lucide-react"
 import React from "react"
 import { useImageDownload } from "@/hooks/useImageDownload"
+import { ReportButton } from "../shared/buttons/reportButton"
 
 interface ProfileOrdersProps {
     profile: UserProfileResponse
@@ -52,22 +53,26 @@ export const ProfileOrders = ({ profile }: ProfileOrdersProps) => {
                                                     <span className="text-3xl">{line.price.toFixed(2)}€</span>
                                                 </div>
                                             </div>
-                                            {line.productprice.type.name !== "Print" && (
-                                                <div className="mt-2">
-                                                    <button
-                                                        className="flex items-center justify-center p-2 bg-primary/40 text-primary-foreground rounded-xl hover:bg-primary/20 transition-colors"
-                                                        onClick={() =>
-                                                            downloadImage(
-                                                                `/assets/products/${line.productprice.product.ImagesProduct[0].src}`,
-                                                                line.productprice.product.name,
-                                                            )
-                                                        }
-                                                        aria-label="Download image"
-                                                    >
-                                                        <Download size={24} />
-                                                    </button>
-                                                </div>
-                                            )}
+                                            <div className="flex items-end">
+                                                {line.productprice.type.name !== "Print" && (
+                                                    <div className="mt-2">
+                                                        <button
+                                                            className="flex items-center justify-center p-2 bg-primary/40 text-primary-foreground rounded-xl hover:bg-primary/20 transition-colors"
+                                                            onClick={() =>
+                                                                downloadImage(
+                                                                    `/assets/products/${line.productprice.product.ImagesProduct[0].src}`,
+                                                                    line.productprice.product.name,
+                                                                )
+                                                            }
+                                                            aria-label="Download image"
+                                                        >
+                                                            <Download size={24} />
+                                                        </button>
+                                                    </div>
+                                                )}
+                                                <ReportButton productId={null} orderLineId={line.id} />
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
