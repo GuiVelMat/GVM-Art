@@ -26,6 +26,7 @@ export const POST = async (req: NextRequest) => {
         data: {
             slug: slug ?? "",
             userId: currrentUser.id,
+            userEmail: currrentUser.email,
             productId: body.productId ?? null,
             orderLineId: body.orderLineId ?? null,
             description: body.description ?? null,
