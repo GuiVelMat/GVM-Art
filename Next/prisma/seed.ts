@@ -793,13 +793,13 @@ async function main() {
   // Crear perfiles de usuario
   const profiles = await prisma.profile.createMany({
     data: [
-      { username: 'artist_one', bio: 'Digital artist specialized in illustrations.', avatar: 'https://via.placeholder.com/150', userId: 1 },
-      { username: 'artist_two', bio: '3D modeler and animation enthusiast.', avatar: 'https://via.placeholder.com/150', userId: 2 },
-      { username: 'user_one', bio: 'Art collector and enthusiast.', avatar: 'https://via.placeholder.com/150', userId: 3 },
-      { username: 'user_two', bio: 'Photographer and digital art fan.', avatar: 'https://via.placeholder.com/150', userId: 4 },
-      { username: 'admin', bio: 'Administrator of the platform.', avatar: 'https://via.placeholder.com/150', userId: 5 },
-      { username: 'premium_one', bio: 'Premium user with access to exclusive content.', avatar: 'https://via.placeholder.com/150', userId: 6 },
-      { username: 'premium_two', bio: 'Premium user with access to exclusive content.', avatar: 'https://via.placeholder.com/150', userId: 7 },
+      { username: 'artist_one', bio: 'Digital artist specialized in illustrations.', avatar: 'https://picsum.photos/200', userId: 1 },
+      { username: 'artist_two', bio: '3D modeler and animation enthusiast.', avatar: 'https://picsum.photos/200', userId: 2 },
+      { username: 'user_one', bio: 'Art collector and enthusiast.', avatar: 'https://picsum.photos/200', userId: 3 },
+      { username: 'user_two', bio: 'Photographer and digital art fan.', avatar: 'https://picsum.photos/200', userId: 4 },
+      { username: 'admin', bio: 'Administrator of the platform.', avatar: 'https://picsum.photos/200', userId: 5 },
+      { username: 'premium_one', bio: 'Premium user with access to exclusive content.', avatar: 'https://picsum.photos/200', userId: 6 },
+      { username: 'premium_two', bio: 'Premium user with access to exclusive content.', avatar: 'https://picsum.photos/200', userId: 7 },
     ],
   });
 
