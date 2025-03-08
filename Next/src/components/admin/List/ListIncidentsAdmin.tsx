@@ -12,7 +12,7 @@ export const ListIncidentsAdmin = async ({ selectStatus, buttonStatus }: IProps)
     const incidents = await getAllIncidents(selectStatus);
 
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-12">
             {incidents.map((incident) => (
                 <CardIncidentAdmin incident={incident} status={buttonStatus} key={incident.id} />
             ))}

@@ -14,12 +14,10 @@ export const ListProductsAdmin = () => {
     }, [])
 
     return (
-        <section className="container mx-auto">
-            <div className="grid grid-cols-3 gap-4">
-                {products.map(product => (
-                    <CardProductAdmin key={product.id} {...product} />
-                ))}
-            </div>
-        </section>
+        <div className="grid grid-cols-3 gap-4">
+            {products.map(product => (
+                <CardProductAdmin key={product.id} {...product} />
+            ))}
+        </div>
     );
 }
