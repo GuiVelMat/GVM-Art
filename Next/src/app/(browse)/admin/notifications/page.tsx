@@ -10,16 +10,14 @@ export const metadata: Metadata = {
 const AdminNotifications = () => {
     return (
         <div className="container mx-auto py-8">
-            <div className="mb-8">
+            <div className="mb-3">
                 <h1 className="text-3xl font-bold tracking-tight">Notifications</h1>
                 <p className="text-muted-foreground mt-2">
                     Send mass notifications to all platform users.
                 </p>
             </div>
 
-            <div className="grid gap-8">
-                <CreateNotificationForm />
-            </div>
+            <CreateNotificationForm />
         </div>
     );
 };

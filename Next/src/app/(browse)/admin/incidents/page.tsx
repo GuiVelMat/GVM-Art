@@ -3,8 +3,8 @@ import React from "react";
 
 const AdminIncidents = () => {
     return (
-        <div className="container mx-auto p-4">
-            <div className="mb-5">
+        <div className="container mx-auto pt-8">
+            <div className="mb-3">
                 <h1 className="text-3xl font-bold tracking-tight">New reports</h1>
                 <p className="text-muted-foreground mt-2">
                     List of all new reports.

@@ -7,14 +7,19 @@ const AdminCarousel = async () => {
     const slides = await getCarousel();
 
     return (
-        <div className="container mx-auto py-8 px-10">
+        <div className="container mx-auto py-8">
+            <div className="mb-3">
+                <h1 className="text-3xl font-bold tracking-tight">Carousel</h1>
+                <p className="text-muted-foreground mt-2">
+                    Manage the carousel slides and create new ones.
+                </p>
+            </div>
+
             <div className="grid grid-cols-5 gap-10">
                 <div className="col-span-3">
-                    <h1 className="mb-4">Home carousel order selector</h1>
                     <CarouselAdmin initialSlides={slides.carousels} />
                 </div>
                 <div className="col-span-2">
-                    <h1 className="text-end mb-4">Create new slide</h1>
                     <CarouselForm />
                 </div>
             </div>

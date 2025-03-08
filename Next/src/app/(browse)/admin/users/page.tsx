@@ -4,10 +4,10 @@ import React from "react";
 const AdminUsers = async () => {
     return (
         <div className="container mx-auto pt-8">
-            <div>
+            <div className="mb-3">
                 <h1 className="text-3xl font-bold tracking-tight">Users</h1>
                 <p className="text-muted-foreground mt-2">
-                    List of all registered users in the platform.
+                    Manage the registered users in the platform.
                 </p>
             </div>
 
