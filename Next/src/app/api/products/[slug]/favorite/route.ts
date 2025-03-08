@@ -41,6 +41,18 @@ export const POST = async (req: NextRequest, { params }: { params: ParamsInterfa
                 favoritedBy: { connect: { id: currentUser.id } },
             },
         });
+
+        await prisma.product.update({
+            where: {
+                id: product.id,
+            },
+            data: {
+                favoritesCount: {
+                    increment: 1,
+                }
+            },
+        });
+
         revalidate(params.slug);
     } catch (e) {
         console.log(e);
@@ -73,7 +85,19 @@ export const DELETE = async (req: NextRequest, { params }: { params: ParamsInter
                     userId: currentUser.id,
                 },
             },
-        })
+        });
+
+        await prisma.product.update({
+            where: {
+                id: product.id,
+            },
+            data: {
+                favoritesCount: {
+                    decrement: 1,
+                }
+            },
+        });
+
         revalidate(params.slug)
     } catch (e) {
         console.log(e)
