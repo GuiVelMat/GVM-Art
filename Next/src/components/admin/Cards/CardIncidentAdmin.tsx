@@ -19,7 +19,7 @@ export const CardIncidentAdmin = ({ incident, status }: CardIncidentAdminProps) 
                 </p>
 
                 {incident.productId ? (
-                    <p className="text-sm mb-2 inline-block px-2 py-1 rounded-full font-medium bg-red-200">
+                    <p className="text-sm mb-2 inline-block px-2 py-1 rounded-full font-medium bg-orange-200">
                         <span className="text-zinc-800 font-bold">ProductID:</span> <span className="font-medium">#{incident.productId}</span>
                     </p>
                 ) : (
@@ -38,7 +38,7 @@ export const CardIncidentAdmin = ({ incident, status }: CardIncidentAdminProps) 
             <p className="text-sm mb-2">
                 <span className="text-zinc-800 font-bold">Report type:</span> <span className="font-medium">{incident.type}</span>
             </p>
-            <div className="my-3 p-3 bg-zinc-200 rounded-md">
+            <div className="my-3 p-3 bg-slate-200 rounded-md shadow-sm">
                 <p className="text-sm text-zinc-800 font-bold mb-1">Description:</p>
                 <p className="text-sm">{incident.description}</p>
             </div>
