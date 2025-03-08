@@ -32,7 +32,6 @@ const menuItems = [
             { icon: FolderClosed, label: "Closed", href: "/admin/incidents/closed" },
         ]
     },
-    { icon: LogOut, label: "Logout", href: "/admin/logout" },
 ]
 
 export function AdminSidebar() {
@@ -68,11 +67,7 @@ export function AdminSidebar() {
                             <SidebarMenuButton asChild isActive={isItemActive(item)}>
                                 <Link href={item.href} className="flex items-center pl-5 py-5 text-xl">
                                     <item.icon className="mr-2 h-16 w-16" />
-                                    {item.label === "Logout" ?
-                                        <span onClick={() => useLogout()}>{item.label}</span>
-                                        :
-                                        <span>{item.label}</span>
-                                    }
+                                    <span>{item.label}</span>
                                 </Link>
                             </SidebarMenuButton>
                             {item.subItems && isItemActive(item) && (

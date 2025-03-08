@@ -185,6 +185,7 @@ async function main() {
       userId: 1,
       collectionId: 4,
       seriesId: 9,
+      favoritesCount: 5,
     },
   }));
   products.push(await prisma.product.create({
@@ -195,6 +196,7 @@ async function main() {
       userId: 2,
       collectionId: 4,
       seriesId: 1,
+      favoritesCount: 3
     },
   }));
   products.push(await prisma.product.create({
@@ -205,6 +207,7 @@ async function main() {
       userId: 1,
       collectionId: 1,
       seriesId: 8,
+      favoritesCount: 7
     },
   }));
   products.push(await prisma.product.create({
@@ -215,6 +218,7 @@ async function main() {
       userId: 2,
       collectionId: 1,
       seriesId: 9,
+      favoritesCount: 4
     },
   }));
   products.push(await prisma.product.create({
@@ -225,6 +229,7 @@ async function main() {
       userId: 1,
       collectionId: 3,
       seriesId: 9,
+      favoritesCount: 6
     },
   }));
   products.push(await prisma.product.create({
@@ -235,6 +240,7 @@ async function main() {
       userId: 2,
       collectionId: 5,
       seriesId: 10,
+      favoritesCount: 5
     },
   }));
   products.push(await prisma.product.create({
@@ -245,6 +251,7 @@ async function main() {
       userId: 1,
       collectionId: 5,
       seriesId: 10,
+      favoritesCount: 3
     },
   }));
   products.push(await prisma.product.create({
@@ -255,6 +262,7 @@ async function main() {
       userId: 2,
       collectionId: 1,
       seriesId: 11,
+      favoritesCount: 7
     },
   }));
   products.push(await prisma.product.create({
@@ -265,6 +273,7 @@ async function main() {
       userId: 1,
       collectionId: 9,
       seriesId: 10,
+      favoritesCount: 4
     },
   }));
   products.push(await prisma.product.create({
@@ -275,6 +284,7 @@ async function main() {
       userId: 2,
       collectionId: 6,
       seriesId: 12,
+      favoritesCount: 6
     },
   }));
   products.push(await prisma.product.create({
@@ -286,6 +296,7 @@ async function main() {
       userId: 1,
       collectionId: 6,
       seriesId: 12,
+      favoritesCount: 5
     },
   }));
   products.push(await prisma.product.create({
@@ -296,6 +307,7 @@ async function main() {
       userId: 2,
       collectionId: 9,
       seriesId: 1,
+      favoritesCount: 7
     },
   }));
   products.push(await prisma.product.create({
@@ -306,6 +318,7 @@ async function main() {
       userId: 1,
       collectionId: 1,
       seriesId: 5,
+      favoritesCount: 4
     },
   }));
   products.push(await prisma.product.create({
@@ -316,6 +329,7 @@ async function main() {
       userId: 2,
       collectionId: 7,
       seriesId: 5,
+      favoritesCount: 2
     },
   }));
   products.push(await prisma.product.create({
@@ -742,10 +756,13 @@ async function main() {
   const orders = await prisma.order.createMany({
     data: [
       { slug: 'order-001', userId: 3, total: 120.99 },
-      { slug: 'order-002', userId: 4, total: 220.5 },
-      { slug: 'order-003', userId: 3, total: 95.75 },
-      { slug: 'order-004', userId: 4, total: 150.25 },
-      { slug: 'order-005', userId: 3, total: 199.99 },
+      { slug: 'order-002', userId: 4, total: 220.5, createdAt: new Date(new Date().setDate(new Date().getDate() - 1)) },
+      { slug: 'order-003', userId: 3, total: 95.75, createdAt: new Date(new Date().setDate(new Date().getDate() - 2)) },
+      { slug: 'order-004', userId: 4, total: 150.25, createdAt: new Date(new Date().setDate(new Date().getDate() - 3)) },
+      { slug: 'order-005', userId: 3, total: 199.99, createdAt: new Date(new Date().setDate(new Date().getDate() - 4)) },
+      { slug: 'order-006', userId: 2, total: 129.99, createdAt: new Date(new Date().setDate(new Date().getDate() - 5)) },
+      { slug: 'order-007', userId: 1, total: 9.99, createdAt: new Date(new Date().setDate(new Date().getDate() - 6)) },
+      { slug: 'order-008', userId: 5, total: 189.99, createdAt: new Date(new Date().setDate(new Date().getDate() - 7)) },
     ],
   });
 
@@ -858,6 +875,9 @@ async function main() {
       { orderId: 2, productPriceId: 2, quantity: 1, price: 220.5 },
       { orderId: 3, productPriceId: 3, quantity: 2, price: 191.5 },
       { orderId: 4, productPriceId: 4, quantity: 1, price: 150.25 },
+      { orderId: 4, productPriceId: 5, quantity: 1, price: 150.25 },
+      { orderId: 3, productPriceId: 12, quantity: 1, price: 150.25 },
+      { orderId: 1, productPriceId: 4, quantity: 1, price: 150.25 },
     ],
   });
 
@@ -911,6 +931,59 @@ async function main() {
       },
     ]
   });
+
+  const incidences = await prisma.Incidents.createMany({
+    data: [
+      {
+        slug: "incident-001",
+        userId: 1,
+        userEmail: "test@test.com",
+        productId: 1,
+        orderLineId: null,
+        description: "The print arrived damaged.",
+        type: "damaged",
+      },
+      {
+        slug: "incident-002",
+        userId: 2,
+        userEmail: "artist2@example.com",
+        productId: 2,
+        orderLineId: null,
+        description: "Received the wrong product.",
+        type: "wrong_product",
+      },
+      {
+        slug: "incident-003",
+        userId: 3,
+        userEmail: "user1@example.com",
+        productId: 3,
+        orderLineId: null,
+        description: "Product was missing parts.",
+        type: "missing_parts",
+        status: "PENDING"
+      },
+      {
+        slug: "incident-004",
+        userId: 4,
+        userEmail: "user2@example.com",
+        productId: 4,
+        orderLineId: null,
+        description: "The product is defective.",
+        type: "defective",
+        status: "PENDING"
+      },
+      {
+        slug: "incident-005",
+        userId: 5,
+        userEmail: "admin@example.com",
+        productId: 5,
+        orderLineId: null,
+        description: "The product arrived late.",
+        type: "late_delivery",
+        status: "INACTIVE"
+      },
+    ]
+  })
 
   // Crear tokens
   // const tokens = await prisma.token.createMany({
