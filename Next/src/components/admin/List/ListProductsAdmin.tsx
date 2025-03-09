@@ -1,21 +1,35 @@
-'use client'
+// 'use client'
 
 import { fetchProducts, selectProducts } from "@/store/slices/productSlice"
 import { useAppDispatch, useAppSelector } from "@/store/store"
-import React, { useEffect } from "react";
+import React from "react";
 import { CardProductAdmin } from "../Cards/CardProductAdmin";
+import { useFetchGalleryImages } from "@/hooks/useGalleryImages";
+import getProducts from "@/actions/getProducts";
 
-export const ListProductsAdmin = () => {
-    const products = useAppSelector(selectProducts);
-    const dispatch = useAppDispatch();
+export const ListProductsAdmin = async ({ searchParams }: {
+    searchParams?: {
+        Category?: string[]
+        Collection?: string[]
+        Series?: string[]
+        Name?: string
+        Page?: number
+    }
+}) => {
+    const { Category, Collection, Series, Name, Page } = await searchParams;
+    const filters = {
+        categorySlugs: Category ? Category.split(',') : '', // Dividimos por comas
+        collectionSlugs: Collection ? Collection.split(',') : '',
+        seriesSlugs: Series ? Series.split(',') : '',
+        searchQuery: Name || '',
+        page: Page || 0,
+    };
 
-    useEffect(() => {
-        dispatch(fetchProducts());
-    }, [])
+    const products = await getProducts(filters);
 
     return (
         <div className="grid grid-cols-3 gap-4">
-            {products.map(product => (
+            {products.products.map(product => (
                 <CardProductAdmin key={product.id} {...product} />
             ))}
         </div>

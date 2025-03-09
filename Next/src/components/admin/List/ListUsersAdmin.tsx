@@ -1,17 +1,20 @@
-'use client'
+// 'use client'
 
-import { fetchUsers, selectUsers } from "@/store/slices/usersSlice";
-import { useAppDispatch, useAppSelector } from "@/store/store"
-import React, { useEffect } from "react";
+import React from "react";
 import { CardUsersAdmin } from "../Cards/CardUsersAdmin";
+import getUserList from "@/actions/getUserList";
 
-export const ListUsersAdmin = () => {
-    const users = useAppSelector(selectUsers);
-    const dispatch = useAppDispatch();
+export const ListUsersAdmin = async ({ searchParams }: {
+    searchParams?: {
+        Name?: string
+    }
+}) => {
+    const params = await searchParams;
+    const filters = {
+        searchQuery: params?.Name || '',
+    }
 
-    useEffect(() => {
-        dispatch(fetchUsers());
-    }, [dispatch])
+    const users = await getUserList(filters);
 
     return (
         <div className="grid grid-cols-4 gap-4">

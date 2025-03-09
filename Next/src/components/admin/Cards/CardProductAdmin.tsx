@@ -14,6 +14,7 @@ export const CardProductAdmin = (product: ProductItem) => {
                     src={`/assets/products/${product.ImagesProduct[0].src}`}
                     alt={product.name}
                     fill
+                    sizes="200px"
                     className="object-cover"
                 />
             </div>
