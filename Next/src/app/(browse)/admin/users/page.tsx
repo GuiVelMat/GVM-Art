@@ -1,7 +1,12 @@
 import { ListUsersAdmin } from "@/components/admin/List/ListUsersAdmin";
+import Search from "@/components/shared/search";
 import React from "react";
 
-const AdminUsers = async () => {
+const AdminUsers = async ({
+    searchParams
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) => {
     return (
         <div className="container mx-auto pt-8">
             <div className="mb-3">
@@ -11,8 +16,12 @@ const AdminUsers = async () => {
                 </p>
             </div>
 
+            <div className="max-w-md mb-3">
+                <Search placeholder="Search users" />
+            </div>
+
             <div className="grid gap-8">
-                <ListUsersAdmin />
+                <ListUsersAdmin searchParams={searchParams} />
             </div>
         </div>
     );
