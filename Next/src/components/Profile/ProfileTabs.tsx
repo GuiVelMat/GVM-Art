@@ -18,23 +18,24 @@ export const ProfileTabs = async ({ profile }: ProfileTabsProps) => {
     return (
         <Tabs defaultValue="products" className="w-full mt-10">
 
-            <TabsList className={`grid w-full ${profile.products.products.length > 0 ? 'grid-cols-5' : 'grid-cols-4'}`}>
+            <TabsList className={`grid w-full ${profile.products.products.length > 0 ? 'grid-cols-2' : 'grid-cols-2'}`}>
 
-                {profile.products.products.length > 0 && (
+                {/* {profile.products.products.length > 0 && (
                     <TabsTrigger value="products" className="my-5 py-1 rounded-l-xl font-bold bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
                         Products ({profile.products.products.length})
                     </TabsTrigger>
-                )}
+                )} */}
 
-                <TabsTrigger value="favorites" className="my-5 py-1 font-bold bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
+                <TabsTrigger value="favorites" className="my-5 py-1 font-bold rounded-l-xl bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
                     Favorites ({profile.favorites.length})
                 </TabsTrigger>
-                <TabsTrigger value="following" className="my-5 py-1 font-bold bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
+
+                {/* <TabsTrigger value="following" className="my-5 py-1 font-bold bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
                     Following ({profile.following.length})
                 </TabsTrigger>
                 <TabsTrigger value="followers" className="my-5 py-1 font-bold bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
                     Followers ({profile.followers.length})
-                </TabsTrigger>
+                </TabsTrigger> */}
 
                 {profile.username === currentUser?.profile?.username && (
                     <TabsTrigger value="orders" className="my-5 py-1 rounded-r-xl font-bold bg-zinc-700 data-[state=active]:text-black data-[state=active]:bg-gold">
@@ -52,12 +53,12 @@ export const ProfileTabs = async ({ profile }: ProfileTabsProps) => {
             <TabsContent value="favorites">
                 <ProfileFavorites profile={profile} />
             </TabsContent>
-            <TabsContent value="following">
+            {/* <TabsContent value="following">
                 <ProfileFollow profile={profile} isFollower={false} />
             </TabsContent>
             <TabsContent value="followers">
                 <ProfileFollow profile={profile} isFollower={true} />
-            </TabsContent>
+            </TabsContent> */}
             <TabsContent value="orders">
                 <ProfileOrders profile={profile} />
             </TabsContent>

@@ -12,7 +12,7 @@ const AdminIncidents = () => {
                 </p>
             </div>
 
-            <ListIncidentsAdmin selectStatus={"ACTIVE"} buttonStatus={"ACTIVE"} />
+            <ListIncidentsAdmin selectStatus={"ACTIVE"} buttonStatus={"PENDING"} />
         </div>
     );
 }

@@ -1,12 +1,14 @@
 "use client"
 
-import { CartesianGrid, XAxis, LabelList, LineChart, Line } from "recharts"
+import { CartesianGrid, XAxis, LabelList, AreaChart, Area } from "recharts"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import React from "react"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ChartWeeklyRevenue({ products }: { products: any[] }) {
+    const totalRevenue = products.reduce((acc, product) => acc + product.totalamount, 0);
+
     const chartConfig = {
         totalamount: {
             label: "Total Amount: ",
@@ -38,12 +40,12 @@ export function ChartWeeklyRevenue({ products }: { products: any[] }) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Last 7 days revenue</CardTitle>
+                <CardTitle>Last 7 days revenue: <span className="text-green-600">{totalRevenue}€</span></CardTitle>
                 <CardDescription>How much money have your earned per day for the last 7 days</CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig} className="h-[260px] w-full">
-                    <LineChart
+                    <AreaChart
                         accessibilityLayer
                         data={products}
                         margin={{
@@ -97,10 +99,11 @@ export function ChartWeeklyRevenue({ products }: { products: any[] }) {
                                 />
                             }
                         />
-                        <Line dataKey="totalamount" type="linear" fill="#8884d8" fillOpacity={0.4} stroke="#8884d8">
+                        {/* type= natural, linear, step */}
+                        <Area dataKey="totalamount" type="linear" fill="#33AF52" fillOpacity={0.4} stroke="#33AF52">
                             <LabelList position={"top"} offset={12} fontSize={12} />
-                        </Line>
-                    </LineChart>
+                        </Area>
+                    </AreaChart>
                 </ChartContainer>
             </CardContent>
         </Card>

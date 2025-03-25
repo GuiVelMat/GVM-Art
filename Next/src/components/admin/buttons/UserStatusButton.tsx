@@ -18,7 +18,9 @@ export const UserStatusButton = ({ userId, currentStatus }: UserStatusButtonProp
         // if (newStatus !== currentStatus) {
         dispatch(updateUserStatus({ userId, status: newStatus }))
         // }
-        location.reload();
+        setTimeout(() => {
+            location.reload();
+        }, 300);
     }
 
     return (

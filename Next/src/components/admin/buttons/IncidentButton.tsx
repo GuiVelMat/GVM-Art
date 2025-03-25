@@ -40,7 +40,7 @@ export const IncidentButton = ({ incident, status }: IncidentButtonProps) => {
         <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button className="w-full mt-2">
-                    {status === "ACTIVE" ?
+                    {status === "PENDING" ?
                         "Open Incident"
                         :
                         "Close Incident"

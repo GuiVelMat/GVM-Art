@@ -12,6 +12,8 @@ export const PUT = async (req: NextRequest) => {
     const body = await req.json();
     console.log(body);
 
+    ApiResponse.ok("User updated successfully");
+
     const updatedUser = await prisma.user.update({
         where: {
             id: body.id
